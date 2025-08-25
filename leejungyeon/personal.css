@@ -1,0 +1,256 @@
+.container {
+    width: 1280px;
+    height: 720px;
+    box-sizing: border-box;
+    border-color: transparent;
+    display: flex;
+    margin: auto;
+}
+
+#left_side {
+    width: 288px;
+    height: 100%;
+
+}
+
+#back_arrow {
+    width: 22px;
+    height: 20px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.manager_case {
+    position: relative;
+    top: 70px;
+    left: 50px;
+}
+
+.manager {
+    width: 216px;
+    height: 216px;
+    border-radius: 100%;
+    border-width: 10px;
+    border-color: #E07B88;
+    border-style: solid; /* 테두리 실선 */
+}
+
+.info_case {
+    position: relative;
+    top: 108px;
+    left: 76px;
+
+}
+
+.info {
+    font-size: 24px;
+    color: #000000;
+    font-weight: 400;
+    font-family: 'arial';
+    line-height: 40px;
+}
+
+#right_side {
+    width: 992px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.right_side_background {
+    width: 992px;
+    height: 992px;
+    background: #FFF2F3;
+    border-radius: 80% 0% 0% 0%;
+    border-color: transparent;
+    position: relative;
+    display: flex;
+}
+
+.name_background {
+    width: 328px;
+    height: 130px;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+}
+
+.name {
+    width: 328px;
+    height: 130px;
+    font-size: 72px;
+    color: #ffffff;
+    font-weight: 800;
+    margin: 0px;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    display: flex;             /* flexbox 사용 */
+    justify-content: center;   /* 가로 가운데 */
+    align-items: center; 
+    text-shadow:
+    -5px -5px 0 #D15364,
+     5px -5px 0 #D15364,
+    -5px  5px 0 #D15364,
+     5px  5px 0 #D15364,
+     0px -5px 0 #D15364,
+     0px  5px 0 #D15364,
+    -5px  0px 0 #D15364,
+     5px  0px 0 #D15364;
+}
+
+.act_section {
+    width: 636px;
+    position: absolute;
+    top: 208px;
+    left: 352px;
+    bottom: 0px;
+    display: flex;
+}
+
+.act_case {
+    width: 208px;
+    height: 784px;
+    position: relative;
+    margin-right: 104px;
+}
+
+.act_1 {
+    color: #000000;
+    font-family: 'arial';
+    position: relative;
+    line-height: 40px;
+}
+
+.act_2 {
+    color: #000000;
+    font-family: 'arial';
+    line-height: 30px;
+    position: relative;
+    left: 32px;
+}
+
+.act_3 {
+    color: #000000;
+    font-family: 'arial';
+    line-height: 20px;
+    position: relative;
+    left: 64px;
+    margin: 18px 0px 18px 0px;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+.act_name {
+    font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+    font-family: 'Pretendard';
+    line-height: 40px;
+    margin: 0px;
+}
+
+.act_img {
+    width: 498px;
+    height: 280px;
+    position: relative;
+    margin-top: 16px;
+}
+
+.guide {
+    width: 498px;
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+    font-family: 'Pretendard';
+    margin: 16px 0px 0px 0px;
+}
+
+.guide_height {
+    width: 300px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+    font-family: 'Pretendard';
+    margin: 0;
+    line-height: 40px;
+    position: absolute;
+    top: 56px;
+    left: 280px;
+}
+
+.tag_case {
+    margin-top: 12px;
+    display: flex;
+}
+
+.tag_case_height {
+    display: flex;
+    position: absolute;
+    top: 434px;
+    left: 280px;
+}
+
+.tag {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+    font-family: 'Pretendard';
+    line-height: 40px;
+    margin: 0px 16px 0px 0px;
+}
+
+.video {
+    height: 416px;
+    margin-top: 16px;
+}
+
+.tag_url_case {
+    width: 120px;
+    height: 176px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column; /* 세로로 쌓기 */
+    align-items: center;    /* 가로 가운데 */
+    justify-content: center;   /* 세로 가운데 */
+}
+
+.tag_picture_width {
+    width: 120px;
+    height: 72px;
+}
+
+.tag_picture_height {
+    width: 120px;
+    height: 132px;
+}
+
+
+.tag_url_case[hidden] {
+  display: none; /* 숨김 */
+}
+
+.filters {
+    width: 611px;
+    height: 100px;
+}
+
+.tag_button {
+    all: unset;              /* 브라우저 기본 스타일 초기화 */
+    display: inline-flex;       /* 텍스트 길이에 맞게 */
+    align-items: center;        /* 세로 가운데 */
+    justify-content: center;    /* 가로 가운데 */
+    cursor: pointer;         /* 손가락 모양 커서 */
+    height: 40px;
+    margin-right: 8px;
+    padding: 0 8px;      /* 좌우 여백 → 텍스트와 버튼 테두리 사이 공간 */
+}
+
+
+
