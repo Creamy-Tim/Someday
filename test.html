@@ -1,0 +1,123 @@
+<!doctype html> <!-- HTML5 표준 문서 타입 선언 -->
+<html lang="ko"> <!-- 문서 기본 언어를 한국어로 지정 (접근성/SEO) -->
+<head> <!-- 메타데이터와 스타일 정의 시작 -->
+  <meta charset="utf-8" /> <!-- 문서 인코딩: UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- 모바일에서 뷰포트 너비를 기기 너비로, 초기 배율 1로 설정 (반응형 핵심) -->
+  <title>반응형 스타터</title> <!-- 브라우저 탭 제목 -->
+
+
+  <style> /* 문서 내 포함된 CSS 시작 */
+    /* 베이스 리셋(간단) */
+    *, *::before, *::after { box-sizing: border-box; } /* 모든 요소와 가상요소의 박스 모델을 보더박스로 설정 → 패딩/보더 포함한 크기 계산 */
+    body { margin: 0; font-family: system-ui, Pretendard, Apple SD Gothic Neo, sans-serif; line-height: 1.5; } /* 기본 여백 제거, 시스템 폰트 우선, 행간 1.5 */
+    img, video { max-width: 100%; height: auto; display: block; } /* 미디어가 부모 폭을 넘지 않게 하고 종횡비 유지, 인라인 간격 제거 */
+    :root{ /* 전역 CSS 변수 정의 루트 */
+      /* 유틸 변수 */
+      --max-w: 1200px; /* 중앙 컨테이너 최대 너비 */
+      --gap: 1rem; /* 그리드/플렉스 간격 기본값 */
+      /* 반응형 타이포: 최소 16px ~ 최대 20px, 뷰포트에 따라 유연 스케일 */
+      --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem); /* 본문 글자 크기 가변 */
+      --fs-h1: clamp(1.5rem, 1.2rem + 2vw, 2.5rem); /* 제목 글자 크기 가변 */
+    } /* :root 종료 */
+    body { font-size: var(--fs-base); } /* body 기본 글자 크기를 변수로 지정 */
+    h1 { font-size: var(--fs-h1); margin: 0.5em 0; } /* h1에 가변 크기와 상하 여백 적용 */
+
+    /* 컨테이너 */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1rem; } /* 중앙 정렬 + 좌우 패딩, 최대 너비 제한 */
+
+    /* 헤더: 모바일 기본은 단일 열 */
+    header { padding: 1rem 0; } /* 헤더 상하 패딩 */
+    .brand { font-weight: 700; } /* 로고/브랜드 굵게 */
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: .75rem; flex-wrap: wrap; } /* 메뉴 목록: 불릿 제거, 가로 정렬, 줄바꿈 허용 */
+    nav a { text-decoration: none; color: inherit; padding: .5rem .75rem; border-radius: .5rem; } /* 링크 밑줄 제거, 부모색 상속, 클릭영역 확대, 모서리 둥글게 */
+    nav a:hover { background: #f2f3f5; } /* 호버 시 연한 배경으로 피드백 */
+
+    /* 히어로 섹션: Grid로 유동 배치 */
+    .hero {
+      display: grid; /* CSS Grid 사용 */
+      gap: var(--gap); /* 그리드 아이템 간격 */
+      grid-template-columns: 1fr; /* 모바일: 1열 레이아웃 */
+      align-items: center; /* 세로 정렬 가운데 */
+      padding: 2rem 0; /* 섹션 상하 여백 */
+    } /* .hero 종료 */
+    .hero .text { order: 2; } /* 모바일에서 텍스트를 두 번째로 배치 (이미지 먼저 보이게) */
+    .hero .media { order: 1; } /* 모바일에서 미디어(이미지)를 첫 번째로 */
+
+    /* 카드 그리드: 자동 칼럼 채우기 */
+    .cards {
+      display: grid; /* 카드 목록을 그리드로 */
+      gap: var(--gap); /* 카드 간격 */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 가능할 만큼 칼럼 자동 생성, 최소 220px */
+      margin: 2rem 0; /* 위아래 여백 */
+    } /* .cards 종료 */
+    .card {
+      border: 1px solid #e5e7eb; /* 옅은 테두리 */
+      border-radius: 12px; /* 둥근 모서리 */
+      padding: 1rem; /* 내부 여백 */
+      background: #fff; /* 흰 배경 (다크모드 미적용 기본) */
+    } /* .card 종료 */
+
+    /* 푸터 */
+    footer { color: #6b7280; padding: 2rem 0; } /* 옅은 글자색, 상하 패딩 */
+
+    /* 브레이크포인트: 화면이 넓어질 때만 보강 */
+    @media (min-width: 768px) { /* 뷰포트 폭이 768px 이상일 때 적용 */
+      .hero {
+        grid-template-columns: 1.1fr 0.9fr; /* 텍스트-이미지 2열로 배치, 비율 약간 다르게 */
+      } /* .hero 미디어쿼리 내 종료 */
+      .hero .text { order: 1; } /* 데스크톱에서 텍스트를 왼쪽(첫 번째) */
+      .hero .media { order: 2; } /* 데스크톱에서 이미지를 오른쪽(두 번째) */
+    } /* 미디어쿼리 종료 */
+  </style> <!-- 내장 스타일 종료 -->
+</head> <!-- head 종료 -->
+
+
+
+<body> <!-- 본문 시작 -->
+  <header class="container"> <!-- 상단 헤더, 중앙 정렬 컨테이너 적용 -->
+    <div class="brand">MySite</div> <!-- 브랜드/로고 텍스트 -->
+    <nav> <!-- 내비게이션 시작 -->
+      <ul> <!-- 메뉴 목록 컨테이너 (flex로 가로 배치) -->
+        <li><a href="#">홈</a></li> <!-- 홈 메뉴 항목 -->
+        <li><a href="#">서비스</a></li> <!-- 서비스 메뉴 항목 -->
+        <li><a href="#">가격</a></li> <!-- 가격 메뉴 항목 -->
+        <li><a href="#">문의</a></li> <!-- 문의 메뉴 항목 -->
+      </ul> <!-- 메뉴 목록 종료 -->
+    </nav> <!-- 내비게이션 종료 -->
+  </header> <!-- 헤더 종료 -->
+
+
+  <main class="container"> <!-- 메인 콘텐츠, 중앙 정렬 컨테이너 적용 -->
+    <section class="hero"> <!-- 히어로 섹션: 소개/이미지 영역 -->
+      <div class="text"> <!-- 텍스트 블록 -->
+        <h1>반응형 웹, 간단하게 시작하기</h1> <!-- 페이지 핵심 제목 -->
+        <p>Grid/Flex, 상대 단위, 최소한의 미디어 쿼리만으로도 다양한 화면을 자연스럽게 대응할 수 있어요.</p> <!-- 소개 문장 -->
+      </div> <!-- .text 종료 -->
+      <div class="media"> <!-- 이미지 블록 -->
+        <img src="hero.jpg" alt="제품 스크린샷" loading="lazy"> <!-- 히어로 이미지: 대체텍스트 제공, 지연 로딩으로 성능 최적화 -->
+      </div> <!-- .media 종료 -->
+    </section> <!-- .hero 섹션 종료 -->
+
+
+    <section class="cards"> <!-- 카드 목록 섹션 (그리드) -->
+      <article class="card"> <!-- 개별 카드 1 -->
+        <h3>모바일 퍼스트</h3> <!-- 카드 제목 -->
+        <p>작은 화면을 기본으로 설계 후, 화면이 커질수록 스타일을 추가해요.</p> <!-- 카드 설명 -->
+      </article> <!-- 카드 1 종료 -->
+      <article class="card"> <!-- 개별 카드 2 -->
+        <h3>유동 레이아웃</h3> <!-- 카드 제목 -->
+        <p>Grid/Flex와 상대 단위로 자연스러운 확장/축소를 구현합니다.</p> <!-- 카드 설명 -->
+      </article> <!-- 카드 2 종료 -->
+      <article class="card"> <!-- 개별 카드 3 -->
+        <h3>가벼운 미디어 쿼리</h3> <!-- 카드 제목 -->
+        <p>필요할 때만 보정—코드는 짧고 유지보수가 쉬워집니다.</p> <!-- 카드 설명 -->
+      </article> <!-- 카드 3 종료 -->
+    </section> <!-- .cards 섹션 종료 -->
+  </main> <!-- main 종료 -->
+  
+
+  <footer class="container"> <!-- 페이지 하단 푸터, 중앙 정렬 컨테이너 적용 -->
+    <small>© 2025 MySite. All rights reserved.</small> <!-- 저작권 표기(작은 글씨) -->
+  </footer> <!-- footer 종료 -->
+</body> <!-- body 종료 -->
+</html> <!-- 문서 종료 -->

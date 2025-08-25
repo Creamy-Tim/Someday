@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>leedongha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap" rel="stylesheet"> <!-- 구글 웹폰트 불러오기  -->
+    <link rel="stylesheet" href="personal.css" />
+</head>
+<body>
+    <main class="container"> <!-- "main"은 div와 같지만 본문을 나타냄 -->
+        <section id="left_side"> <!-- "section"은 div와 같지만 구역을 나타냄 -->
+            <a href="leedonogha.html">
+                <img id="back_arrow" src="img\left_arrow.svg" alt="뒤로가기">
+            </a>
+            <div class="manager_case">
+                <img class="manager" src="img\leedongha.svg" alt="이동하 그림">
+            </div>
+            <div class="info_case">
+                <p class="info">이름: 이동하</p>
+                <p class="info">직책: 회장 / 강사</p>
+                <p class="info">소속: 소프트웨어학부</p>
+                <p class="info">학번: 24학번</p>
+            </div>
+        </section>
+        <section id="right_side">
+            <img class="right_side_background" src="img/right_side_background,svg">
+            <img class="name_background" src="img\name_background.svg" alt="이름 배경">
+            <p class="name">이동하</p>
+            <section class="act_section" style="display: flex; flex-wrap: wrap;">
+                
+                <!-- 필터 버튼 -->
+                <div class="filters">
+                    <button class="tag_button" data-filter="all">#전체</button>
+                    <button class="tag_button" data-filter="동아리">#동아리</button>
+                    <button class="tag_button" data-filter="DOIT">#DO IT</button>
+                    <button class="tag_button" data-filter="스날">#스날</button>
+                    <button class="tag_button" data-filter="Someday">#Someday</button>
+                    <button class="tag_button" data-filter="베리타스">#베리타스</button>
+                </div>
+
+                <!-- 사진 갤러리 -->
+                <div class="tag_url_case" data-tags="동아리 DOIT">
+                    <img class="tag_picture_width" src="img\Yonsei_SPACE.png" alt="YONSEI SPACE">
+                    <p class="tag" style="margin: 0px;">YONSEI SPACE</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 DOIT">
+                    <img class="tag_picture_width" src="img\CODI.png" alt="CODI">
+                    <p class="tag" style="margin: 0px;">CODI</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 DOIT">
+                    <img class="tag_picture_width" src="img\moji.svg" alt="moji">
+                    <p class="tag" style="margin: 0px;">학식모지클론코딩</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 DOIT">
+                    <img class="tag_picture_height" src="img\Y-nnect.svg" alt="Y-nnect">
+                    <p class="tag" style="margin: 0px;">Y-nnect</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 스날">
+                    <img class="tag_picture_height" src="img\snal_contest.jpg" alt="경희대배 배드민턴대회">
+                    <p class="tag" style="margin: 0px;">경희 배드민턴대회</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 스날">
+                    <img class="tag_picture_width" src="img\snal_bongbong.jpg" alt="스날 봉봉">
+                    <p class="tag" style="margin: 0px;">스날 봉봉</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 스날">
+                    <img class="tag_picture_width" src="img\snal_lol.png" alt="스날 설화">
+                    <p class="tag" style="margin: 0px;">스날 설화</p>
+                </div>
+                <div class="tag_url_case" data-tags="동아리 Someday">
+                    <img class="tag_picture_width" src="img\Someday.jpg" alt="Someday">
+                    <p class="tag" style="margin: 0px;">Someday</p>
+                </div>
+                <div class="tag_url_case" data-tags="베리타스">
+                    <img class="tag_picture_width" src="img\RC_community.png" alt="RC 자치회">
+                    <p class="tag" style="margin: 0px;">RC 자치회</p>
+                </div>
+                <div class="tag_url_case" data-tags="베리타스">
+                    <img class="tag_picture_height" src="img\RA.jpg" alt="RA">
+                    <p class="tag" style="margin: 0px;">RA</p>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script>
+        const buttons = document.querySelectorAll('.filters button');
+        const photos = document.querySelectorAll('.tag_url_case');
+
+
+        buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+
+            photos.forEach(photo => {
+            const tags = photo.dataset.tags.split(" ");
+            if (filter === "all" || tags.includes(filter)) {
+                photo.hidden = false;  // 보이기
+            } else {
+                photo.hidden = true;   // 숨기기
+            }
+            });
+        });
+        });
+    </script>
+
+</body>
+</html>
