@@ -113,7 +113,6 @@ a {
     position: relative;
     top:146px;
     left:20px;
-
     display: grid;
     grid-template-columns: repeat(4, 240px);  /* 한 줄에 4개 */
     column-gap: 80px;                         /* 가로 간격 */
