@@ -1,3 +1,8 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .container {
     width: 1280px;
     height: 720px;
@@ -25,6 +30,60 @@
     font-family: 'Abril Fatface';
     line-height: 40px;
     margin-left: 8px;
+}
+
+.dropdown_button {
+    width: 132px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 4px;
+    border-style: solid;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dropdown_text {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Abel';
+    margin: 0;
+}
+
+.dropdown_list {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.dropdown_menu {
+    width: 140px;
+    position: absolute;
+    top: calc(100%);
+    right: 20px;
+    margin: 0;
+    list-style: disc;
+    background: rgba(193, 48, 67, 0.6);
+    color: #ffffff;
+    border-radius: 0px 0px 12px 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+    box-sizing: border-box;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.dropdown_menu.open {
+    max-height: 100vh;
 }
 
 .banner_case {
@@ -75,3 +134,5 @@
     border-radius:50%;
     box-sizing:border-box;
 }
+
+
