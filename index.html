@@ -65,19 +65,33 @@
         
     </main>
     <script>
-        const people_button = document.getElementById("people_button");
-        const people_menu = document.getElementById("people_menu");
         const someday_button = document.getElementById("someday_button");
-        const someday_menu = document.getElementById("someday_menu");
+        const someday_menu   = document.getElementById("someday_menu");
+        const people_button  = document.getElementById("people_button");
+        const people_menu    = document.getElementById("people_menu");
 
-
-        people_button.addEventListener("click", () => {
-            people_menu.classList.toggle("open");
+        // Someday 버튼 클릭
+        someday_button.addEventListener("click", (e) => {
+            e.stopPropagation(); // 이벤트 전파 방지
+            someday_menu.classList.toggle("open");   // Someday 토글
+            people_menu.classList.remove("open");    // People은 닫기
         });
 
-        someday_button.addEventListener("click", () => {
-            someday_menu.classList.toggle("open");
+        // People 버튼 클릭
+        people_button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            people_menu.classList.toggle("open");    // People 토글
+            someday_menu.classList.remove("open");   // Someday는 닫기
         });
+
+        // 바깥 클릭 시 모두 닫기
+        document.addEventListener("click", (e) => {
+        if (!e.target.closest(".dropdown_button") && !e.target.closest(".dropdown_menu")) {
+            someday_menu.classList.remove("open");
+            people_menu.classList.remove("open");
+        }
+        });
+
     </script>
 </body>
 </html>
